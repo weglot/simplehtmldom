@@ -1,5 +1,5 @@
 {
-    "name": "simplehtmldom/simplehtmldom",
+    "name": "weglot/simple_html_dom",
     "description": "A fast, simple and reliable HTML document parser for PHP.",
     "keywords": [
         "php",
