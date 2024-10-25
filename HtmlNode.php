@@ -452,25 +452,29 @@ class HtmlNode
 					$quote_type = self::HDOM_QUOTE_DOUBLE;
 				}
 
-				switch ($quote_type)
-				{
-					case self::HDOM_QUOTE_SINGLE:
-						$quote = '\'';
-						break;
-					case self::HDOM_QUOTE_NO:
-						if (strpos($val, ' ') !== false ||
-							strpos($val, "\t") !== false ||
-							strpos($val, "\f") !== false ||
-							strpos($val, "\r") !== false ||
-							strpos($val, "\n") !== false) {
+				if(strpos($key, 'wg-') !== false) {
+					$quote = '"';
+				} else {
+					switch ($quote_type)
+					{
+						case self::HDOM_QUOTE_SINGLE:
+							$quote = '\'';
+							break;
+						case self::HDOM_QUOTE_NO:
+							if (strpos($val, ' ') !== false ||
+							    strpos($val, "\t") !== false ||
+							    strpos($val, "\f") !== false ||
+							    strpos($val, "\r") !== false ||
+							    strpos($val, "\n") !== false) {
+								$quote = '"';
+							} else {
+								$quote = '';
+							}
+							break;
+						case self::HDOM_QUOTE_DOUBLE:
+						default:
 							$quote = '"';
-						} else {
-							$quote = '';
-						}
-						break;
-					case self::HDOM_QUOTE_DOUBLE:
-					default:
-						$quote = '"';
+					}
 				}
 
 				$ret .= $key
