@@ -1273,6 +1273,22 @@ class HtmlNode
 		return isset($this->$name);
 	}
 
+	function hasAncestorAttribute($attribute)
+	{
+		$currentNode = $this;
+		if (isset($this->$attribute)) {
+			return true;
+		}
+		while ($currentNode->parent() && $currentNode->parent()->tag != 'html') {
+			if (isset($currentNode->parent()->$attribute)) {
+				return true;
+			} else {
+				$currentNode = $currentNode->parent();
+			}
+		}
+		return false;
+	}
+	
 	function removeAttribute($name)
 	{
 		unset($this->$name);
