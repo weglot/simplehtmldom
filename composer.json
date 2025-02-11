@@ -32,14 +32,11 @@
         "rss": "https://sourceforge.net/p/simplehtmldom/news/feed.rss"
     },
     "autoload": {
-        "classmap": [
-            "./"
-        ],
-        "exclude-from-classmap": [
-            "/example/",
-            "/docs/",
-            "/tests/",
-            "simple_html_dom.php"
+        "psr-4": {
+            "SimpleHtmlDom\\": "src/"
+        },
+        "files": [
+            "src/simple_html_dom.php"
         ]
     },
     "require": {
