@@ -29,10 +29,10 @@ class file_get_html_test extends TestCase {
 				$size,
 				true,
 				false,
-				DEFAULT_TARGET_CHARSET,
+				WG_DEFAULT_TARGET_CHARSET,
 				false,
-				DEFAULT_BR_TEXT,
-				DEFAULT_SPAN_TEXT
+				WG_DEFAULT_BR_TEXT,
+				WG_DEFAULT_SPAN_TEXT
 			)->save(),
 			'Files equal to maxLen should load normally.'
 		);
@@ -55,10 +55,10 @@ class file_get_html_test extends TestCase {
 				$size - 1,
 				true,
 				false,
-				DEFAULT_TARGET_CHARSET,
+				WG_DEFAULT_TARGET_CHARSET,
 				false,
-				DEFAULT_BR_TEXT,
-				DEFAULT_SPAN_TEXT
+				WG_DEFAULT_BR_TEXT,
+				WG_DEFAULT_SPAN_TEXT
 			),
 			'Files larger than $maxLen should return false.'
 		);

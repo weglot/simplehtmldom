@@ -109,10 +109,10 @@ class HtmlDocument
 		$str = null,
 		$lowercase = true,
 		$forceTagsClosed = true,
-		$target_charset = DEFAULT_TARGET_CHARSET,
+		$target_charset = WG_DEFAULT_TARGET_CHARSET,
 		$stripRN = true,
-		$defaultBRText = DEFAULT_BR_TEXT,
-		$defaultSpanText = DEFAULT_SPAN_TEXT,
+		$defaultBRText = WG_DEFAULT_BR_TEXT,
+		$defaultSpanText = WG_DEFAULT_SPAN_TEXT,
 		$options = 0)
 	{
 		if ($str) {
@@ -164,8 +164,8 @@ class HtmlDocument
 		$str,
 		$lowercase = true,
 		$stripRN = true,
-		$defaultBRText = DEFAULT_BR_TEXT,
-		$defaultSpanText = DEFAULT_SPAN_TEXT,
+		$defaultBRText = WG_DEFAULT_BR_TEXT,
+		$defaultSpanText = WG_DEFAULT_SPAN_TEXT,
 		$options = 0)
 	{
 		// prepare
@@ -229,8 +229,8 @@ class HtmlDocument
 
 	protected function prepare(
 		$str, $lowercase = true,
-		$defaultBRText = DEFAULT_BR_TEXT,
-		$defaultSpanText = DEFAULT_SPAN_TEXT)
+		$defaultBRText = WG_DEFAULT_BR_TEXT,
+		$defaultSpanText = WG_DEFAULT_SPAN_TEXT)
 	{
 		$this->doc = isset($str) ? trim($str) : '';
 		$this->size = strlen($this->doc);

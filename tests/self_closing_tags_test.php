@@ -119,11 +119,11 @@ HTML;
 
 		$this->assertEquals('before', $br->parentNode()->previousSibling()->id);
 		$this->assertEquals('<br>', $br->outertext);
-		$this->assertEquals(DEFAULT_BR_TEXT, $br->innertext);
+		$this->assertEquals(WG_DEFAULT_BR_TEXT, $br->innertext);
 		$this->assertEquals('after', $br->parentNode()->nextSibling()->id);
 
 		$this->assertEquals(
-			'PHP Simple HTML DOM Parser' . DEFAULT_BR_TEXT . 'A PHP based DOM parser',
+			'PHP Simple HTML DOM Parser' . WG_DEFAULT_BR_TEXT . 'A PHP based DOM parser',
 			$br->parentNode()->plaintext
 		);
 

@@ -293,7 +293,7 @@ class HtmlNode
 				if ($this->dom && $this->dom->targetCharset) {
 					$charset = $this->dom->targetCharset;
 				} else {
-					$charset = DEFAULT_TARGET_CHARSET;
+					$charset = WG_DEFAULT_TARGET_CHARSET;
 				}
 				$ret .= htmlentities($this->_[self::HDOM_INFO_INNER], ENT_QUOTES | ENT_SUBSTITUTE, $charset);
 			}

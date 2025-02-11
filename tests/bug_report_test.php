@@ -281,7 +281,7 @@ HTML;
 
 		/* With Smarty as text */
 
-		$this->html->load($doc, true, true, DEFAULT_BR_TEXT, DEFAULT_SPAN_TEXT, HDOM_SMARTY_AS_TEXT);
+		$this->html->load($doc, true, true, WG_DEFAULT_BR_TEXT, WG_DEFAULT_SPAN_TEXT, HDOM_SMARTY_AS_TEXT);
 
 		$this->assertCount(1, $this->html->find('p'));
 

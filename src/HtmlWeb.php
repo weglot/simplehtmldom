@@ -70,7 +70,7 @@ class HtmlWeb {
 
 		// There is no guarantee this request will be fulfilled
 		// -- https://www.php.net/manual/en/function.curl-setopt.php
-		curl_setopt($ch, CURLOPT_BUFFERSIZE, MAX_FILE_SIZE);
+		curl_setopt($ch, CURLOPT_BUFFERSIZE, WG_MAX_FILE_SIZE);
 
 		// There is no guarantee this request will be fulfilled
 		$header = array(
@@ -87,7 +87,7 @@ class HtmlWeb {
 
 		curl_close($ch);
 
-		if(strlen($doc) > MAX_FILE_SIZE) {
+		if(strlen($doc) > WG_MAX_FILE_SIZE) {
 			return null;
 		}
 
@@ -108,7 +108,7 @@ class HtmlWeb {
 			'ignore_errors' => true // Always fetch content
 		)));
 
-		$doc = file_get_contents($url, false, $context, 0, MAX_FILE_SIZE + 1);
+		$doc = file_get_contents($url, false, $context, 0, WG_MAX_FILE_SIZE + 1);
 
 		if(isset($http_response_header)) {
 			foreach($http_response_header as $rh) {
@@ -125,7 +125,7 @@ class HtmlWeb {
 			}
 		}
 
-		if(strlen($doc) > MAX_FILE_SIZE) {
+		if(strlen($doc) > WG_MAX_FILE_SIZE) {
 			return null;
 		}
 

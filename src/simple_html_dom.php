@@ -23,39 +23,39 @@
 
 use simplehtmldom\HtmlNode;
 
-if (defined('DEFAULT_TARGET_CHARSET')) {
-	define('simplehtmldom\DEFAULT_TARGET_CHARSET', DEFAULT_TARGET_CHARSET);
+if (defined('WG_DEFAULT_TARGET_CHARSET')) {
+	define('simplehtmldom\WG_DEFAULT_TARGET_CHARSET', WG_DEFAULT_TARGET_CHARSET);
 }
 
-if (defined('DEFAULT_BR_TEXT')) {
-	define('simplehtmldom\DEFAULT_BR_TEXT', DEFAULT_BR_TEXT);
+if (defined('WG_DEFAULT_BR_TEXT')) {
+	define('simplehtmldom\WG_DEFAULT_BR_TEXT', WG_DEFAULT_BR_TEXT);
 }
 
-if (defined('DEFAULT_SPAN_TEXT')) {
-	define('simplehtmldom\DEFAULT_SPAN_TEXT', DEFAULT_SPAN_TEXT);
+if (defined('WG_DEFAULT_SPAN_TEXT')) {
+	define('simplehtmldom\WG_DEFAULT_SPAN_TEXT', WG_DEFAULT_SPAN_TEXT);
 }
 
-if (defined('MAX_FILE_SIZE')) {
-	define('simplehtmldom\MAX_FILE_SIZE', MAX_FILE_SIZE);
+if (defined('WG_MAX_FILE_SIZE')) {
+	define('simplehtmldom\WG_MAX_FILE_SIZE', WG_MAX_FILE_SIZE);
 }
 
 include_once 'HtmlDocument.php';
 include_once 'HtmlNode.php';
 
-if (!defined('DEFAULT_TARGET_CHARSET')) {
-	define('DEFAULT_TARGET_CHARSET', \simplehtmldom\DEFAULT_TARGET_CHARSET);
+if (!defined('WG_DEFAULT_TARGET_CHARSET')) {
+	define('WG_DEFAULT_TARGET_CHARSET', \simplehtmldom\WG_DEFAULT_TARGET_CHARSET);
 }
 
-if (!defined('DEFAULT_BR_TEXT')) {
-	define('DEFAULT_BR_TEXT', \simplehtmldom\DEFAULT_BR_TEXT);
+if (!defined('WG_DEFAULT_BR_TEXT')) {
+	define('WG_DEFAULT_BR_TEXT', \simplehtmldom\WG_DEFAULT_BR_TEXT);
 }
 
-if (!defined('DEFAULT_SPAN_TEXT')) {
-	define('DEFAULT_SPAN_TEXT', \simplehtmldom\DEFAULT_SPAN_TEXT);
+if (!defined('WG_DEFAULT_SPAN_TEXT')) {
+	define('WG_DEFAULT_SPAN_TEXT', \simplehtmldom\WG_DEFAULT_SPAN_TEXT);
 }
 
-if (!defined('MAX_FILE_SIZE')) {
-	define('MAX_FILE_SIZE', \simplehtmldom\MAX_FILE_SIZE);
+if (!defined('WG_MAX_FILE_SIZE')) {
+	define('WG_MAX_FILE_SIZE', \simplehtmldom\WG_MAX_FILE_SIZE);
 }
 
 const HDOM_TYPE_ELEMENT = HtmlNode::HDOM_TYPE_ELEMENT;
@@ -88,12 +88,12 @@ function file_get_html(
 	$maxLen = -1,
 	$lowercase = true,
 	$forceTagsClosed = true,
-	$target_charset = DEFAULT_TARGET_CHARSET,
+	$target_charset = WG_DEFAULT_TARGET_CHARSET,
 	$stripRN = true,
-	$defaultBRText = DEFAULT_BR_TEXT,
-	$defaultSpanText = DEFAULT_SPAN_TEXT)
+	$defaultBRText = WG_DEFAULT_BR_TEXT,
+	$defaultSpanText = WG_DEFAULT_SPAN_TEXT)
 {
-	if($maxLen <= 0) { $maxLen = MAX_FILE_SIZE; }
+	if($maxLen <= 0) { $maxLen = WG_MAX_FILE_SIZE; }
 
 	$dom = new simple_html_dom(
 		null,
@@ -125,10 +125,10 @@ function str_get_html(
 	$str,
 	$lowercase = true,
 	$forceTagsClosed = true,
-	$target_charset = DEFAULT_TARGET_CHARSET,
+	$target_charset = WG_DEFAULT_TARGET_CHARSET,
 	$stripRN = true,
-	$defaultBRText = DEFAULT_BR_TEXT,
-	$defaultSpanText = DEFAULT_SPAN_TEXT)
+	$defaultBRText = WG_DEFAULT_BR_TEXT,
+	$defaultSpanText = WG_DEFAULT_SPAN_TEXT)
 {
 	$dom = new simple_html_dom(
 		null,
@@ -140,7 +140,7 @@ function str_get_html(
 		$defaultSpanText
 	);
 
-	if (empty($str) || strlen($str) > MAX_FILE_SIZE) {
+	if (empty($str) || strlen($str) > WG_MAX_FILE_SIZE) {
 		$dom->clear();
 		return false;
 	}
